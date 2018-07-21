@@ -20,6 +20,7 @@ public class Client extends Thread {
 
     public Client(Socket socket)
     {
+
         this.socket = socket;
     }
 
@@ -29,13 +30,15 @@ public class Client extends Thread {
         try {
             InputStream inputStream = socket.getInputStream();
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-
+            File dir =new File("Exam2/tmp");
+           if(!dir.exists()){
+               dir.mkdir();
+           }
 
 
             File pdf = new File("Exam2/tmp/SampleChapter1.pdf");
             if (!pdf.exists())
             {
-                pdf.createNewFile();
                 OutputStream outputStream = new FileOutputStream(pdf);
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
                 byte[] data = new byte[100];
@@ -46,7 +49,7 @@ public class Client extends Thread {
                 }
                 System.out.println("finish");
                 bufferedOutputStream.close();
-                outputStream.close();
+
             }
             else {
                 System.err.println("exists");

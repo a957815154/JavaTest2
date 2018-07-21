@@ -1,0 +1,1 @@
+java -cp Exam2/target/Exam2.jar com.hand.Server

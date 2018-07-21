@@ -64,8 +64,6 @@ public class App3
     public static void main(String[] args) {
         try{
 
-            args=new String[1];
-            args[0]=    "sz300170";
             System.out.println("[INFO] 股票编码："+args[0]);
             System.out.println("[INFO] 开始获取数据。。。。。。");
             downLoadByUrl("http://hq.sinajs.cn/list="+args[0],
